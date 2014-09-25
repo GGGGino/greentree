@@ -8,31 +8,40 @@
 
 (function($) {
 
-  // Collection method.
-  $.fn.greentree = function() {
-    return this.each(function(i) {
-      // Do something awesome to each selected element.
-      $(this).html('awesome' + i);
-    });
-  };
 
   // Static method.
-  $.greentree = function(options) {
+  $.greentree = function(oggetto, options) {
     // Override default options with passed-in options.
+
     options = $.extend({}, $.greentree.options, options);
+
+    this.opzioni = options;
+    this.contenitore = oggetto;
+    this.items = this.getItems();
+
     // Return something awesome.
-    return 'awesome' + options.punctuation;
+    return true;
   };
 
   // Static method default options.
   $.greentree.options = {
-    punctuation: '.'
+    selector: 'div'
+  };
+  // methods.
+  $.greentree.prototype = {
+    getItemsNumber: function(){
+      return this.contenitore.children(this.opzioni.selector).length;
+    },
+    getItems: function(){
+      return this.contenitore.children(this.opzioni.selector);
+    }
   };
 
-  // Custom selector.
-  $.expr[':'].greentree = function(elem) {
-    // Is this element awesome?
-    return $(elem).text().indexOf('awesome') !== -1;
+  // Collection method.
+  $.fn.greentree = function(options) {
+    var questo = $(this);
+    options = options || {};
+    return new $.greentree(questo, options);
   };
 
 }(jQuery));
