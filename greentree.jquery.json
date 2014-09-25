@@ -1,0 +1,27 @@
+{
+  "name": "greentree",
+  "title": "Greentree",
+  "description": "Make tree with everything",
+  "version": "0.1.0",
+  "homepage": "https://github.com/GGGGino/greentree",
+  "author": {
+    "name": "ggggino",
+    "email": "david.ginanni@gmail.com",
+    "url": "www.davidginanni.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/GGGGino/greentree.git"
+  },
+  "bugs": "https://github.com/GGGGino/greentree/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/GGGGino/greentree/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "1.8.0"
+  },
+  "keywords": []
+}
