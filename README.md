@@ -15,7 +15,7 @@ In your web page:
 <script src="dist/jquery.greentree.min.js"></script>
 <script>
 jQuery(function($) {
-  $.awesome(); // "awesome"
+  $.greentree(); // "awesome"
 });
 </script>
 ```
