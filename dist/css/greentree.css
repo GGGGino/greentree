@@ -1,0 +1,15 @@
+/* line 1, ../../src/scss/greentree.scss */
+body {
+  background: red; }
+  /* line 3, ../../src/scss/greentree.scss */
+  body .pippo {
+    display: none; }
+    /* line 5, ../../src/scss/greentree.scss */
+    body .pippo .vediamo {
+      bottom: 40px; }
+      /* line 6, ../../src/scss/greentree.scss */
+      body .pippo .vediamo .se {
+        color: #FFF; }
+        /* line 8, ../../src/scss/greentree.scss */
+        body .pippo .vediamo .se .funzioni .correttamente {
+          margin-top: 10px; }

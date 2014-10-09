@@ -13,7 +13,7 @@ module.exports = function(grunt) {
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
     clean: {
-      files: ['dist']
+      files: ['dist','dist/css']
     },
     concat: {
       options: {
@@ -51,14 +51,28 @@ module.exports = function(grunt) {
         src: ['test/**/*.js']
       },
     },
+    compass: {                  // Task
+      dist: {                   // Target
+        options: {              // Target options
+          environment: 'production'
+        }
+      },
+      dev: {                    // Another target
+        options: {
+          sassDir: 'src/scss',
+          cssDir: 'dist/css',
+          outputStyle: 'nested',
+        }
+      }
+    },
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
         tasks: ['jshint:gruntfile']
       },
       src: {
-        files: '<%= jshint.src.src %>',
-        tasks: ['jshint:src', 'qunit']
+        files: ['<%= jshint.src.src %>', 'test/*', 'src/scss/*'],
+        tasks: ['jshint:src', 'qunit', 'compass:dev']
       },
       test: {
         files: '<%= jshint.test.src %>',
@@ -70,12 +84,13 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit', 'clean', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'qunit', 'clean', 'concat', 'uglify','compass:dev', 'watch']);
 
 };
