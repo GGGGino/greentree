@@ -24,28 +24,9 @@
         innerhtml,
         numeroFigli;
     oggetto.html("");
-    for(var i = 1; i <= this.getMaxGrado(); i++){
-      html = "<div class=\"riga riga"+i+"\" riga=\""+i+"\">";
-      numeroFigli = 0;
-      for ( var j = 0; j < this.items.length; j++) {
-        if(this.items[j].grado === i){
-          numeroFigli++;
-          innerhtml = "<div class=\"contItem\">";
-          innerhtml += this.items[j].outerHTML;
-          innerhtml += "</div>";
-          html += innerhtml;
-        }
-      }
-      html += "</div>";
-      oggetto.append(html);
-      var widthCont = 100/numeroFigli;
-      widthCont = widthCont + "%";
-      $(".riga"+i+" .contItem").css({
-        width: widthCont,
-        float: 'left',
-        textAlign: 'center',
-      });
-    }
+
+    this.doTree();
+
     $('.riga').css({
       clear: 'both',
     });
@@ -80,6 +61,30 @@
         this.items[i].grado = grado;
       }
       return numMax;
+    },
+    doTree: function(){
+      for(var i = 1; i <= this.getMaxGrado(); i++){
+        html = "<div class=\"riga riga"+i+"\" riga=\""+i+"\">";
+        numeroFigli = 0;
+        for ( var j = 0; j < this.items.length; j++) {
+          if(this.items[j].grado === i){
+            numeroFigli++;
+            innerhtml = "<div class=\"contItem\">";
+            innerhtml += this.items[j].outerHTML;
+            innerhtml += "</div>";
+            html += innerhtml;
+          }
+        }
+        html += "</div>";
+        this.contenitore.append(html);
+        var widthCont = 100/numeroFigli;
+        widthCont = widthCont + "%";
+        $(".riga"+i+" .contItem").css({
+          width: widthCont,
+          float: 'left',
+          textAlign: 'center',
+        });
+      }
     }
   };
 
