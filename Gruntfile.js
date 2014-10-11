@@ -92,5 +92,7 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'qunit', 'clean', 'concat', 'uglify','compass:dev', 'watch']);
+  grunt.registerTask('build', ['jshint', 'qunit', 'clean', 'concat', 'uglify','compass:dev']);
+
 
 };

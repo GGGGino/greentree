@@ -8,6 +8,9 @@
   <!-- Load local lib and tests. -->
   <script src="../src/jquery.greentree.js"></script>
   <style type="text/css">
+  .tree{
+    text-align: center;
+  }
   .ruoli{
     background: red;
     display: inline-block;
@@ -21,34 +24,34 @@
 <body>
     <div class="tree">
       <div class="ruoli" grado="1">
-        Presidente
+        <div class="innerRuolo">
+          Presidente
+        </div>
       </div>
       <div class="ruoli" grado="1-1">
-        VicePres
+        <div class="innerRuolo">
+          VicePres1
+        </div>
       </div>
       <div class="ruoli" grado="1-2">
-        ViceVicePres
+        <div class="innerRuolo">
+          VicePres2
+        </div>
+      </div>
+      <div class="ruoli" grado="1-1-1">
+        <div class="innerRuolo">
+          Avvocato1
+        </div>
       </div>
       <div class="ruoli" grado="1-2-1">
-        Avvocato
+        <div class="innerRuolo">
+          Avvocato2
+        </div>
       </div>
-      <div class="ruoli" grado="1-2-2">
-        Impiegato
-      </div>
-      <div class="ruoli" grado="1-2-3">
-        Schiavo
-      </div>
-      <div class="ruoli" grado="1-2-1-2">
-        Schiavo
-      </div>
-      <div class="ruoli" grado="1-2-1-2">
-        Schiavo
-      </div>
-      <div class="ruoli" grado="1-2-2-1">
-        Schiavo
-      </div>
-      <div class="ruoli" grado="1-2-3-1">
-        Schiavo
+      <div class="ruoli" grado="1-2-1-1">
+        <div class="innerRuolo">
+          Avvocato21
+        </div>
       </div>
     </div>
     <script type="text/javascript">
@@ -56,7 +59,6 @@
         var green = _$('.tree').greentree({
           punctuation: "speriamo"
         });
-        console.log(green.getMaxGrado())
       });
     </script>
 </body>
